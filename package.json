@@ -1,0 +1,14 @@
+{
+  "name": "eproc-puppeteer",
+  "version": "1.0.0",
+  "description": "Projeto para usar Puppeteer para interagir com o eproc.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.11.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
