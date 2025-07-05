@@ -14,5 +14,12 @@ const puppeteer = require("puppeteer-core");
         'a.infraLegendObrigatorio[title="Novo Lembrete"]'
     );
     await page.click('a.infraLegendObrigatorio[title="Novo Lembrete"]');
+    const frameHandle = await page.waitForSelector("#ifrSubFrm");
+    const frame = await frameHandle.contentFrame();
+    const txaDescricao = await frame.waitForSelector("#txaDescricao");
+    await txaDescricao.evaluate((el) => (el.value = "TEMA 1184"));
+    await txaDescricao.evaluate((el) => el.dispatchEvent(new Event("input")));
+    const btnSalvar = await frame.waitForSelector("#sbmSalvar");
+    await btnSalvar.click();
     await browser.disconnect();
 })();
